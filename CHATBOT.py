@@ -1,5 +1,4 @@
-# \Users\Erick\CHATBOT_COMPUTER.py -- A chatbot program made with Python
-
+#BATCOMPUTER (UNFINISHED)
 # NO REAL TIME DATA
 
 # pip install pyaudio
@@ -19,31 +18,20 @@ voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)
 engine.setProperty('rate', 170)  
 engine.setProperty('volume', 1)  
-
 recognizer = sr.Recognizer()
 
 # OPEN AI DATA
-api_key = "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"
+api_key = ""
 client = OpenAI(api_key=api_key)
 
-# Function to handle key press
-def on_key_press(event):
-    global stop_value
-    if event.name == '0':
-        print("Program stopped by user.")
-        stop_value = 1
-        
-
-# Register the key press event
-keyboard.on_press(on_key_press)
 
 # PROGRAM STARTS HERE
-stop_value = 0  # Define stop_value globally
+stop_value = 0
 engine.say("Hello, I am an AI assistant. To use, say computer, then wait, then prompt your question.")
 def chatbot():
     global stop_value
     
-    while stop_value == 0:  # Check stop_value before proceeding
+    while stop_value == 0:
         try:
             with sr.Microphone() as source:
                 print("Listening for 'computer'...")
